@@ -18,7 +18,11 @@ Customers can see an introduction to the company and to see the available cars a
 
 ## Screenshots
 
+Company Terminal:
+![Company Terminal](/Screenshots/terminal.png)
 
+Customer Website:
+![Customer Website](/Screenshots/webpage.png)
 
 ## Installation
 
