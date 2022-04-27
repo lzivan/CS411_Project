@@ -1,12 +1,12 @@
 # Best Rent: A Car Rental System
 
-Best rent is a car rental system built for CS 411 Project at Boston University. 
+Best Rent is a car rental system built for CS 411 Project at Boston University. 
 
 Language used: Java, MySQL, HTML and CSS
 
 IDE: Eclipse IDE 2022-03, Visual Studio Code
 
-The whole system is divided to two parts: *Rent_Terminal* is for the car rental company to manage cars, customers, and rental history. *Rent_CustomerWebsite* is a frontend webpage built for customers to see available cars and submit request for renting them. 
+The whole system is divided into two parts: *Rent_Terminal* is for the car rental company to manage cars, customers, and rental history. *Rent_CustomerWebsite* is a frontend webpage built for customers to see available cars and submit request for renting them. 
 
 ## Features
 
