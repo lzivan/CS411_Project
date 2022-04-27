@@ -1,6 +1,6 @@
 # Best Rent: A Car Rental System
 
-Best Rent is a car rental system built for CS 411 Project at Boston University. 
+Best Rent is a car rental system built for CS 411 Project at Boston University with group members Tianyi Bao, Zhangde Song, Zijie Li, Xiang Li.
 
 Language used: Java, MySQL, HTML and CSS
 
