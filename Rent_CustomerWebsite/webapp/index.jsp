@@ -100,7 +100,8 @@ td {
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">AVAILABLE CARS</span></h5>
   
     <div class="w3-container w3-padding-48 w3-card">
-      
+	    
+      <!-- Retriving available cars -->
 		<form method="post">
 			<table class="center">
 				<tr>
