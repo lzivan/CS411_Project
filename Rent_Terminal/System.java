@@ -103,6 +103,10 @@ public class System extends javax.swing.JFrame {
     
     }
     
+    /**
+    * This method update customer table and  connect to sql database
+    **/
+    
     public void update_Ctable()
     {
         int colnum;
@@ -148,7 +152,11 @@ public class System extends javax.swing.JFrame {
            
     
     }
-
+    
+    /**
+    * Update the the fee table in sql database
+    **/
+    
     public void update_Ftable()
     {
         int colnum;
@@ -242,6 +250,12 @@ public class System extends javax.swing.JFrame {
     
     }
     
+    /**
+    * This method generate the if for customer
+    **Ex. 1, 2, 3, 4, ...
+    **/
+    
+    
     public void CustomerID()
     
     {
@@ -286,6 +300,7 @@ public class System extends javax.swing.JFrame {
     
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // Do not modify this code! 
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -810,7 +825,8 @@ public class System extends javax.swing.JFrame {
             
         
     }//GEN-LAST:event_btnAddActionPerformed
-
+    
+    // Intercation code with teh vehicle table
     private void VehicleTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VehicleTableMouseClicked
         // TODO add your handling code here:
         
@@ -829,7 +845,8 @@ public class System extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_VehicleTableMouseClicked
-
+    
+    //   Edit button intercation code 
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         DefaultTableModel df1 = (DefaultTableModel)VehicleTable.getModel();
@@ -878,7 +895,8 @@ public class System extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnEditActionPerformed
-
+    
+    // Delete button intercation code
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         
@@ -923,11 +941,12 @@ public class System extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnDeleteActionPerformed
-
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
-
+    
+    
+    // Cancle button intercation code.
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
       dispose();
