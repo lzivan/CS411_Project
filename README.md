@@ -1,6 +1,6 @@
 # Best Rent: A Car Rental System
 
-Best Rent is a car rental system built for CS 411 Project at Boston University with group members Tianyi Bao, Zhangde Song, Zijie Li, Xiang Li.
+Best Rent is a car rental system built for Spring 2022 CS 411 B1 Project at Boston University. 
 
 Language used: Java, MySQL, HTML and CSS
 
@@ -34,12 +34,28 @@ Customer Website:
 
 [MySQL Connector Java 8.0.28](https://dev.mysql.com/downloads/connector/j/) for communication between Java and MySQL database.
 
+## Installation
+
+    Please make sure you have Apache Tomcat 10 and all the environment configered in Eclipse IDE.
+
+1. Execute best_rent.sql to create database schema
+2. To launch the Company Terminal:
+     1. Import Rent_Terminal into Eclipse
+     2. For every Java class, please change your MySQL connections username and password
+     3. Run LoginPage.java
+     4. Default account: Admin, password: 12345
+3. To launch the Customer Website:
+     1. Import Rent_CustomerWebsite into Eclipse
+     2. Change your MySQL connections username and password in RentServlet.java
+     3. Run index.jsp under webapp/index.jsp
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## Acknowledgment
+## Author and Acknowledgment
+This is a group project made by: Tianyi Bao [@bbbBao](https://github.com/bbbBao), Xiang Li [@GussLii](https://github.com/GussLii), Zijie Li [@lzivan](https://github.com/lzivan), Zhangde Song [@peteroldriver](https://github.com/peteroldriver)
 
 Webpage CSS Templete from [W3.CSS](https://www.w3schools.com/w3css/default.asp)
 
