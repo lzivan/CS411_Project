@@ -24,14 +24,19 @@ Company Terminal:
 Customer Website:
 ![Customer Website](/Screenshots/webpage.png)
 
-## Installation
+## Environment
+
+[JDK 17](https://www.oracle.com/java/technologies/downloads/#java17) used throughout the whole project.
 
 [Apache Tomcat 10](https://tomcat.apache.org/download-10.cgi) used for the web project. 
+
+[MySQL Connector Java 8.0.28](https://dev.mysql.com/downloads/connector/j/) for communication between Java and MySQL database.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
 
-## License
+## Acknowledgment
+
 Webpage CSS Templete from [W3.CSS](https://www.w3schools.com/w3css/default.asp)
