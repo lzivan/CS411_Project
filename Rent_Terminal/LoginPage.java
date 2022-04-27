@@ -39,7 +39,7 @@ public class LoginPage extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login portal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Hiragino Maru Gothic ProN", 2, 13))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Login portal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Phosphate", 2, 13))); // NOI18N
         jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jPanel1MouseEntered(evt);
@@ -51,10 +51,10 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Phosphate", 0, 18)); // NOI18N
         jLabel2.setText("Username");
 
-        jLabel3.setFont(new java.awt.Font("Helvetica Neue", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Phosphate", 0, 18)); // NOI18N
         jLabel3.setText("Password");
 
         txtUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -63,6 +63,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        btLogin.setFont(new java.awt.Font("Phosphate", 0, 13)); // NOI18N
         btLogin.setText("Login");
         btLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +71,7 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
 
+        btCancel.setFont(new java.awt.Font("Phosphate", 0, 13)); // NOI18N
         btCancel.setText("Cancel");
         btCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,10 +91,10 @@ public class LoginPage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3))
-                .addGap(61, 61, 61)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btLogin)
@@ -111,16 +113,16 @@ public class LoginPage extends javax.swing.JFrame {
                     .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(78, 78, 78)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtPword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 3, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Phosphate", 3, 36)); // NOI18N
         jLabel1.setText("Best Rent");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -133,18 +135,18 @@ public class LoginPage extends javax.swing.JFrame {
                         .addGap(84, 84, 84)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(32, 32, 32)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addGap(28, 28, 28)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
