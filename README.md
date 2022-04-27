@@ -10,9 +10,19 @@ The whole system is divided to two parts: *Rent_Terminal* is for the car rental 
 
 ### Company Side
 
+On the company side, employees can add, delete and edit vehicles and customer information. Rental history will also be shown in the terminal.
+
 ### Customer Side
 
+Customers can see an introduction to the company and to see the available cars and submit rental request through the website. 
+
+## Screenshots
+
+
+
 ## Installation
+
+[Apache Tomcat 10](https://tomcat.apache.org/download-10.cgi) used for the web project. 
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
