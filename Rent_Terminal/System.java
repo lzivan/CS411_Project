@@ -53,7 +53,9 @@ public class System extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     
     /**
-     * This method updates the table and connects to the mysql database
+     * This method updates the Vehicle table 
+     * and connects to the mysql database of Vehicle
+     * 
      */
     public void update_Vtable()
     {
@@ -61,9 +63,12 @@ public class System extends javax.swing.JFrame {
     
     
         try {
+            // Connect to the mysql database
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3302/best_rent","root","");
             
+            
+            //Select the vehicle table
             pres = connect.prepareStatement("select * from vehicle");
             ResultSet res = pres.executeQuery();
             ResultSetMetaData resd = res.getMetaData();
@@ -71,6 +76,7 @@ public class System extends javax.swing.JFrame {
             DefaultTableModel def = (DefaultTableModel) VehicleTable.getModel();
             def.setRowCount(0);
             
+            // use the while loop to get the contents from the database
             while (res.next())
             {
                 Vector vec = new Vector();
@@ -104,18 +110,21 @@ public class System extends javax.swing.JFrame {
     }
     
     /**
-    * This method update customer table and  connect to sql database
-    **/
-    
+     * This method updates the Customer table 
+     * and connects to the mysql database of Customer
+     * 
+     */
     public void update_Ctable()
     {
         int colnum;
     
     
         try {
+            // Connect to the mysql database
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3302/best_rent","root","");
-            
+           
+            //Select the customer table
             pres = connect.prepareStatement("select * from customer");
             ResultSet res = pres.executeQuery();
             ResultSetMetaData resd = res.getMetaData();
@@ -123,6 +132,9 @@ public class System extends javax.swing.JFrame {
             DefaultTableModel def = (DefaultTableModel) CustomerTable.getModel();
             def.setRowCount(0);
             
+            
+            // use the while loop to get the contents from the database
+
             while (res.next())
             {
                 Vector vec = new Vector();
@@ -152,11 +164,12 @@ public class System extends javax.swing.JFrame {
            
     
     }
-    
-    /**
-    * Update the the fee table in sql database
-    **/
-    
+
+     /**
+     * This method updates the Rental fee table 
+     * and connects to the mysql database of rental
+     * 
+     */
     public void update_Ftable()
     {
         int colnum;
@@ -166,6 +179,8 @@ public class System extends javax.swing.JFrame {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3302/best_rent","root","");
             
+            
+            //Select the rental table
             pres = connect.prepareStatement("select * from rental");
             ResultSet res = pres.executeQuery();
             ResultSetMetaData resd = res.getMetaData();
@@ -173,6 +188,9 @@ public class System extends javax.swing.JFrame {
             DefaultTableModel def = (DefaultTableModel) FeeTable.getModel();
             def.setRowCount(0);
             
+            
+            // use the while loop to get the contents from the database
+
             while (res.next())
             {
                 Vector vec = new Vector();
@@ -227,14 +245,14 @@ public class System extends javax.swing.JFrame {
             if(res.getString("Max(vehicle_num)") == null)
                 
             {
-            
+                // Base case, set the name to "V0001"
                 txtVnum.setText("V0001");
             
             }else{
             
                 long vnum = Long.parseLong(res.getString("Max(vehicle_num)").substring(2,res.getString("Max(vehicle_num)").length()));
                 vnum++;
-                
+                // Combine the "V0" to other numbers
                 txtVnum.setText("V0" + String.format("%03d",vnum));
             
             
@@ -250,12 +268,12 @@ public class System extends javax.swing.JFrame {
     
     }
     
-    /**
-    * This method generate the if for customer
-    **Ex. 1, 2, 3, 4, ...
-    **/
     
-    
+     /**
+     * This method automatically generates the ID number for each added vehicle
+     * Unlike Vehicle ID, customer ID is simply the built in sequence created
+     * in the database. Ex 1,2,3,4...8.
+     */
     public void CustomerID()
     
     {
@@ -275,7 +293,7 @@ public class System extends javax.swing.JFrame {
             if(res.getString("Max(id)") == null)
                 
             {
-            
+                // Base case, customer ID is "1"
                 txtCid.setText("1");
             
             }else{
@@ -300,7 +318,6 @@ public class System extends javax.swing.JFrame {
     
     
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Do not modify this code! 
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
@@ -775,11 +792,11 @@ public class System extends javax.swing.JFrame {
     private void txtVnumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtVnumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtVnumActionPerformed
-
+    // This method adds a vehicle from the terminal to the table and also the database
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
         
-        
+        // Generate every content from vehicle to String
         String veno = txtVnum.getText();
         String make = txtMake.getText();
         String model = txtModel.getText();
@@ -807,6 +824,7 @@ public class System extends javax.swing.JFrame {
             pres.executeUpdate();
             JOptionPane.showMessageDialog(this,"Vehicle added successfully");
             
+            // Change the vehicle terminal to empty case
             txtMake.setText("");
             txtModel.setText("");
             comboAva.setSelectedIndex(-1);
@@ -826,7 +844,10 @@ public class System extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnAddActionPerformed
     
-    // Intercation code with teh vehicle table
+    /* 
+    *This method selects the table content and 
+    * presents the information on the terminal.
+    */
     private void VehicleTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VehicleTableMouseClicked
         // TODO add your handling code here:
         
@@ -835,6 +856,7 @@ public class System extends javax.swing.JFrame {
              
         int selectIndex = VehicleTable.getSelectedRow();
         
+        // Use setText() or setSelectedItem() to present the information from the table to terminal
         txtVnum.setText(df1.getValueAt(selectIndex,0).toString());
         txtMake.setText(df1.getValueAt(selectIndex,1).toString());
         txtModel.setText(df1.getValueAt(selectIndex,2).toString());
@@ -845,8 +867,8 @@ public class System extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_VehicleTableMouseClicked
-    
-    //   Edit button intercation code 
+
+    // This method modify the contents from the terminal and updates to database
     private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
         // TODO add your handling code here:
         DefaultTableModel df1 = (DefaultTableModel)VehicleTable.getModel();
@@ -854,7 +876,7 @@ public class System extends javax.swing.JFrame {
         int selectIndex = VehicleTable.getSelectedRow();
         
         try {
-            
+            // Get every content from the terminal
             String vid = df1.getValueAt(selectIndex,0).toString();
             String make = txtMake.getText();
             String model = txtModel.getText();
@@ -868,7 +890,7 @@ public class System extends javax.swing.JFrame {
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3302/best_rent","root","");
             
             pres = connect.prepareStatement("update vehicle set make = ?, model = ?, available = ?, car_status = ?, mileage = ?, price = ? where vehicle_num = ?");
-          
+            // Update the content to sql database
             pres.setString(1,make);
             pres.setString(2,model);
             pres.setString(3,aval);
@@ -895,8 +917,7 @@ public class System extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnEditActionPerformed
-    
-    // Delete button intercation code
+    //This method deletes the selected vehicle from the table and also the database
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
         
@@ -916,6 +937,7 @@ public class System extends javax.swing.JFrame {
                 Class.forName("com.mysql.jdbc.Driver");
                  connect = DriverManager.getConnection("jdbc:mysql://localhost:3302/best_rent","root","");
                  
+                 //Delete from the database
                  pres = connect.prepareStatement("delete from vehicle where vehicle_num = ?");
                  
                  pres.setString(1, vid);
@@ -941,12 +963,11 @@ public class System extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnDeleteActionPerformed
+
     private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPriceActionPerformed
-    
-    
-    // Cancle button intercation code.
+
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
         // TODO add your handling code here:
       dispose();
@@ -956,10 +977,12 @@ public class System extends javax.swing.JFrame {
     private void txtCidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCidActionPerformed
-
+    
+    // This method adds a customer from the terminal to the table and also the database
     private void btnAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdd1ActionPerformed
         // TODO add your handling code here:
 
+        // Generate every content from customer to String
         String cid = txtCid.getText();
         String cname = txtCName.getText();
         String credits = txtCredits.getText();
@@ -981,7 +1004,7 @@ public class System extends javax.swing.JFrame {
 
             pres.executeUpdate();
             JOptionPane.showMessageDialog(this,"Customer added successfully");
-
+            // Change the customer terminal to empty case
             txtCName.setText("");
             txtCredits.setText("");
             txtMobile.setText("");
@@ -997,6 +1020,7 @@ public class System extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
+        //This method deletes the selected customer from the table and also the database
     private void btnDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete1ActionPerformed
         // TODO add your handling code here:
 
@@ -1016,6 +1040,7 @@ public class System extends javax.swing.JFrame {
 
                 pres = connect.prepareStatement("delete from customer where id = ?");
 
+                //Delete from the database
                 pres.setString(1, cid);
 
                 pres.executeUpdate();
@@ -1033,6 +1058,7 @@ public class System extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDelete1ActionPerformed
 
+        // This method modify the contents from the terminal and updates to database
     private void btnEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEdit1ActionPerformed
         // TODO add your handling code here:
         DefaultTableModel df1 = (DefaultTableModel)CustomerTable.getModel();
@@ -1041,6 +1067,7 @@ public class System extends javax.swing.JFrame {
 
         try {
 
+                      // Get every content from the terminal
             String cid = df1.getValueAt(selectIndex,0).toString();
             String name = txtCName.getText();
             String credits = txtCredits.getText();
@@ -1053,6 +1080,8 @@ public class System extends javax.swing.JFrame {
 
             pres = connect.prepareStatement("update customer set name = ?, credits = ?, address = ?, mobile = ? where id = ?");
 
+            pres = connect.prepareStatement("update vehicle set make = ?, model = ?, available = ?, car_status = ?, mileage = ?, price = ? where vehicle_num = ?");
+            // Update the content to sql database
             pres.setString(1,name);
             pres.setString(2,credits);
 
@@ -1075,13 +1104,14 @@ public class System extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCreditsActionPerformed
 
+    // The same as VehicleTableMouseClicked, it presents the content from the table to terminal
     private void CustomerTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CustomerTableMouseClicked
         // TODO add your handling code here:
 
         DefaultTableModel df1 = (DefaultTableModel)CustomerTable.getModel();
 
         int selectIndex = CustomerTable.getSelectedRow();
-
+        // Use setText() or setSelectedItem() to present the information from the table to terminal
         txtCid.setText(df1.getValueAt(selectIndex,0).toString());
         txtCName.setText(df1.getValueAt(selectIndex,1).toString());
         txtCredits.setText(df1.getValueAt(selectIndex,2).toString());
@@ -1095,7 +1125,7 @@ public class System extends javax.swing.JFrame {
     private void txtMobileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMobileActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtMobileActionPerformed
-
+    // This method refresh every table. If there's changes in the database, it refreshes each table, so the contents in the tables get updated
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         // TODO add your handling code here:
         
@@ -1103,7 +1133,8 @@ public class System extends javax.swing.JFrame {
         update_Ctable();
         update_Ftable();
     }//GEN-LAST:event_btnRefreshActionPerformed
-
+    
+    // It clears out the shown contents in the terminal, so it's easier for us to add new contents from the terminal
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
         
@@ -1119,7 +1150,9 @@ public class System extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnClearActionPerformed
-
+    /*
+    The same as above. It clears out the contents in customer table.
+    */
     private void btnClear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear2ActionPerformed
         // TODO add your handling code here:
         
@@ -1132,7 +1165,9 @@ public class System extends javax.swing.JFrame {
             update_Ctable();
         
     }//GEN-LAST:event_btnClear2ActionPerformed
-
+    /*
+    Logout button. Creats a new login page.
+    */
     private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
         // TODO add your handling code here:
         LoginPage login = new LoginPage();
