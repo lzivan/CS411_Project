@@ -156,9 +156,9 @@ public class System extends javax.swing.JFrame {
             
             
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
         }
             
            
@@ -1014,9 +1014,9 @@ public class System extends javax.swing.JFrame {
             update_Ctable();
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAdd1ActionPerformed
 
@@ -1050,9 +1050,9 @@ public class System extends javax.swing.JFrame {
                 update_Ctable();
 
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -1094,9 +1094,9 @@ public class System extends javax.swing.JFrame {
             update_Ctable();
 
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEdit1ActionPerformed
 
