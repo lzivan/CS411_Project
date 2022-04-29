@@ -42,6 +42,7 @@ Customer Website:
 2. To launch the Company Terminal:
      1. Import Rent_Terminal into Eclipse
      2. For every Java class, please change your MySQL connections username and password
+          EX. Our connection link is (jdbc:mysql://localhost:3302/best_rent","root",""), maybe you should make some modifications here.
      3. Run LoginPage.java
      4. Default account: Admin, password: 12345
 3. To launch the Customer Website:
