@@ -40,18 +40,18 @@
                           <Component id="jScrollPane1" pref="647" max="32767" attributes="0"/>
                           <Component id="jScrollPane3" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="83" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="btnRefresh" min="-2" pref="92" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="284" max="-2" attributes="0"/>
-                                  <Component id="btnCancel" min="-2" pref="94" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="btnLogout" alignment="1" min="-2" pref="491" max="-2" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnRefresh" min="-2" pref="92" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+                              <Component id="btnDeleteRecord" min="-2" pref="129" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
+                              <Component id="btnCancel" min="-2" pref="94" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane5" min="-2" pref="491" max="-2" attributes="0"/>
+                          <Component id="btnLogout" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jScrollPane5" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
                   </Group>
@@ -80,6 +80,7 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnCancel" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
                           <Component id="btnRefresh" alignment="3" min="-2" pref="54" max="-2" attributes="0"/>
+                          <Component id="btnDeleteRecord" alignment="3" min="-2" pref="52" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnLogout" min="-2" pref="54" max="-2" attributes="0"/>
@@ -753,6 +754,17 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Rental History"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDeleteRecord">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Phosphate" size="13" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Delete Record"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteRecordActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

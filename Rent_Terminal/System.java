@@ -366,6 +366,7 @@ public class System extends javax.swing.JFrame {
         btnLogout = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        btnDeleteRecord = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -727,6 +728,14 @@ public class System extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Phosphate", 0, 13)); // NOI18N
         jLabel14.setText("Rental History");
 
+        btnDeleteRecord.setFont(new java.awt.Font("Phosphate", 0, 13)); // NOI18N
+        btnDeleteRecord.setText("Delete Record");
+        btnDeleteRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteRecordActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -745,16 +754,17 @@ public class System extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 647, Short.MAX_VALUE)
                             .addComponent(jScrollPane3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(284, 284, 284)
-                                    .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(94, 94, 94)
+                                .addComponent(btnDeleteRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(102, 102, 102)
+                                .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel14)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnLogout, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane5))
                         .addGap(64, 64, 64))))
         );
         layout.setVerticalGroup(
@@ -776,7 +786,8 @@ public class System extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnDeleteRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -1080,7 +1091,6 @@ public class System extends javax.swing.JFrame {
 
             pres = connect.prepareStatement("update customer set name = ?, credits = ?, address = ?, mobile = ? where id = ?");
 
-            pres = connect.prepareStatement("update vehicle set make = ?, model = ?, available = ?, car_status = ?, mileage = ?, price = ? where vehicle_num = ?");
             // Update the content to sql database
             pres.setString(1,name);
             pres.setString(2,credits);
@@ -1175,6 +1185,46 @@ public class System extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_btnLogoutActionPerformed
 
+    // This method deletes the rental record.
+    private void btnDeleteRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteRecordActionPerformed
+        // TODO add your handling code here:
+        
+        DefaultTableModel df1 = (DefaultTableModel)FeeTable.getModel();
+        
+        
+        
+        int selectIndex = FeeTable.getSelectedRow();
+        
+        String vid = df1.getValueAt(selectIndex,0).toString();
+        
+        int dialogShown = JOptionPane.showConfirmDialog(this,"Are you sure to delete this record?", "Warning",JOptionPane.YES_NO_OPTION);
+        
+        if (dialogShown == JOptionPane.YES_OPTION)
+        {
+            try {
+                Class.forName("com.mysql.jdbc.Driver");
+                 connect = DriverManager.getConnection("jdbc:mysql://localhost:3302/best_rent","root","");
+                 
+                 //Delete from the database
+                 pres = connect.prepareStatement("delete from rental where car_id = ?");
+                 
+                 pres.setString(1, vid);
+                 
+                 pres.executeUpdate();
+                 
+                 JOptionPane.showMessageDialog(this, "Record deleted successfully");
+                 
+                 update_Ftable();
+                 
+                 
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                Logger.getLogger(System.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnDeleteRecordActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1222,6 +1272,7 @@ public class System extends javax.swing.JFrame {
     private javax.swing.JButton btnClear2;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnDelete1;
+    private javax.swing.JButton btnDeleteRecord;
     private javax.swing.JButton btnEdit;
     private javax.swing.JButton btnEdit1;
     private javax.swing.JButton btnLogout;
