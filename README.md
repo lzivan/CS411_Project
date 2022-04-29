@@ -37,6 +37,11 @@ Customer Website:
 ## :wrench: Installation
 
 :heavy_exclamation_mark: **Please make sure you have Apache Tomcat 10 and all the environment configered in Eclipse IDE.**
+Company Terminal:
+![Company Terminal](/Screenshots/RentTerminal.png)
+
+Customer Website:
+![Customer Website](/Screenshots/WebPage.png)
 
 1. Execute best_rent.sql to create database schema
 2. To launch the Company Terminal:
