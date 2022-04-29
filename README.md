@@ -47,7 +47,7 @@ Customer Website:
      4. Default account: Admin, password: 12345
 3. To launch the Customer Website:
      1. Import Rent_CustomerWebsite into Eclipse
-     2. Change your MySQL connections username and password in RentServlet.java
+     2. Change your MySQL connections username and password in RentServlet.java and index.jsp
      3. Run index.jsp under webapp/index.jsp
 
 ## :notebook: Contributing
